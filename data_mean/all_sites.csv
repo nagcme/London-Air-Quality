@@ -1,0 +1,230 @@
+,Site_Code,Site_Name,Borough
+0,A30,Kingston - Kingston Bypass A3,Kingston upon Thames
+1,BG1,Barking and Dagenham - Rush Green,Barking and Dagenham
+2,BG2,Barking and Dagenham - Scrattons Farm,Barking and Dagenham
+3,BG3,Barking and Dagenham - North Street,Barking and Dagenham
+4,BL0,Camden - Bloomsbury,Camden
+5,BN1,Barnet - Tally Ho Corner,Barnet
+6,BN2,Barnet - Finchley,Barnet
+7,BN3,Barnet - Strawberry Vale ,Barnet
+8,BP0,Westminster - Bridge Place,Westminster
+9,BQ5,Bexley - Manor Road West Gravimetric,Bexley
+10,BQ6,Bexley - Manor Road East Gravimetric,Bexley
+11,BQ7,Bexley - Belvedere West,Bexley
+12,BQ8,Bexley - Belvedere West FDMS,Bexley
+13,BQ9,Bexley - Slade Green FIDAS,Bexley
+14,BT1,Brent - Kingsbury,Brent
+15,BT2,Brent - Ikea Car Park,Brent
+16,BT3,Brent - Harlesden,Brent
+17,BT4,Brent - Ikea,Brent
+18,BT5,Brent - Neasden Lane,Brent
+19,BT6,Brent - John Keble Primary School,Brent
+20,BT7,Brent - St Marys Primary School,Brent
+21,BT8,Brent - ARK Franklin Primary Academy,Brent
+22,BX0,Bexley - Belvedere FDMS,Bexley
+23,BX1,Bexley - Slade Green,Bexley
+24,BX2,Bexley - Belvedere,Bexley
+25,BX3,Bexley - Thamesmead,Bexley
+26,BX4,Bexley - Erith,Bexley
+27,BX5,Bexley - Bedonwell ,Bexley
+28,BX6,Bexley - Thames Road North FDMS,Bexley
+29,BX7,Bexley - Thames Road North,Bexley
+30,BX8,Bexley - Thames Road South,Bexley
+31,BY1,Bromley - Rent Office,Bromley
+32,BY4,Bromley - Tweedy Rd,Bromley
+33,BY5,Bromley - Biggin Hill,Bromley
+34,BY7,Bromley - Harwood Avenue,Bromley
+35,CD1,Camden - Swiss Cottage,Camden
+36,CD3,Camden - Shaftesbury Avenue,Camden
+37,CD4,Camden - St Martins College (NOX 1),Camden
+38,CD5,Camden - St Martins College (NOX 2),Camden
+39,CD9,Camden - Euston Road,Camden
+40,CR2,Croydon - Purley Way,Croydon
+41,CR3,Croydon - Thornton Heath,Croydon
+42,CR4,Croydon - George Street,Croydon
+43,CR5,Croydon - Norbury,Croydon
+44,CR6,Croydon - Euston Road,Croydon
+45,CR7,Croydon - Purley Way A23,Croydon
+46,CR8,Croydon - Norbury Manor,Croydon
+47,CR9,Croydon - Park Lane,Croydon
+48,CT1,City of London - Senator House,City of London
+49,CT2,City of London - Farringdon Street,City of London
+50,CT3,City of London - The Aldgate School,City of London
+51,CT4,City of London - Beech Street,City of London
+52,CT6,City of London - Walbrook Wharf,City of London
+53,CT8,City of London - Upper Thames Street,City of London
+54,CY1,Crystal Palace - Crystal Palace Parade,Croydon
+55,EA0,Ealing - Acton Town Hall FDMS,Ealing
+56,EA1,Ealing - Ealing Town Hall,Ealing
+57,EA2,Ealing - Acton Town Hall,Ealing
+58,EA6,Ealing - Hanger Lane Gyratory,Ealing
+59,EA7,Ealing - Southall,Ealing
+60,EA8,Ealing - Horn Lane,Ealing
+61,EA9,Ealing - Court Way,Ealing
+62,EI0,Ealing - Greenford,Ealing
+63,EI1,Ealing - Western Avenue,Ealing
+64,EI2,Ealing - Southall Railway,Ealing
+65,EI3,Ealing - Acton Vale ,Ealing
+66,EI7,Ealing - Southall FDMS,Ealing
+67,EI8,Ealing - Horn Lane TEOM,Ealing
+68,EN1,Enfield - Bush Hill Park,Enfield
+69,EN2,Enfield - Church Street,Enfield
+70,EN3,Enfield - Salisbury School,Enfield
+71,EN4,Enfield - Derby Road,Enfield
+72,EN5,Enfield - Bowes Primary School,Enfield
+73,EN7,Enfield - Prince of Wales School,Enfield
+74,GB0,Greenwich - Falconwood FDMS,Greenwich
+75,GB6,Greenwich - Falconwood,Greenwich
+76,GN0,Greenwich - A206 Burrage Grove,Greenwich
+77,GN2,Greenwich - Millennium Village,Greenwich
+78,GN3,Greenwich - Plumstead High Street,Greenwich
+79,GN4,Greenwich - Fiveways Sidcup Rd A20,Greenwich
+80,GN5,Greenwich - Trafalgar Road (Hoskins St),Greenwich
+81,GN6,Greenwich - John Harrison Way,Greenwich
+82,GR4,Greenwich - Eltham,Greenwich
+83,GR5,Greenwich - Trafalgar Road,Greenwich
+84,GR7,Greenwich - Blackheath,Greenwich
+85,GR8,Greenwich - Woolwich Flyover,Greenwich
+86,GR9,Greenwich - Westhorne Avenue,Greenwich
+87,GV1,Westminster - Ebury Street (Grosvenor),Westminster
+88,GV2,Westminster - Duke Street (Grosvenor),Westminster
+89,HF1,Hammersmith and Fulham - Broadway,Hammersmith and Fulham
+90,HF2,Hammersmith and Fulham - Brook Green,Hammersmith and Fulham
+91,HF3,Hammersmith and Fulham - Scrubs Lane,Hammersmith and Fulham
+92,HF4,Hammersmith and Fulham - Shepherds Bush,Hammersmith and Fulham
+93,HG1,Haringey - Haringey Town Hall,Haringey
+94,HG2,Haringey - Priory Park,Haringey
+95,HG3,Haringey - Bounds Green,Haringey
+96,HG4,Haringey  - Priory Park South,Haringey
+97,HI0,Hillingdon - Keats Way,Hillingdon
+98,HI1,Hillingdon - South Ruislip,Hillingdon
+99,HI2,Hillingdon - Hillingdon Hospital,Hillingdon
+100,HI3,Hillingdon - Oxford Avenue,Hillingdon
+101,HK4,Hackney - Clapton,Hackney
+102,HK6,Hackney - Old Street,Hackney
+103,HP1,Lewisham - Honor Oak Park,Lewisham
+104,HR1,Harrow - Stanmore,Harrow
+105,HR2,Harrow - Pinner Road,Harrow
+106,HS1,Hounslow - Brentford,Hounslow
+107,HS2,Hounslow - Cranford,Hounslow
+108,HS3,Hounslow - Brentford,Hounslow
+109,HS4,Hounslow - Chiswick High Road,Hounslow
+110,HS5,Hounslow - Brentford,Hounslow
+111,HS6,Hounslow - Heston Road,Hounslow
+112,HS7,Hounslow - Hatton Cross,Hounslow
+113,HS8,Hounslow and Ealing - Gunnersbury Avenue,Hounslow
+114,HS9,Hounslow - Feltham,Hounslow
+115,HV1,Havering - Rainham,Havering
+116,HV2,Havering - Harold Hill,Havering
+117,HV3,Havering - Romford,Havering
+118,IM1,Camden - Holborn (Bee Midtown),Camden
+119,IS1,Islington - Upper Street,Islington
+120,IS2,Islington - Holloway Road,Islington
+121,IS4,Islington - Foxham Gardens,Islington
+122,IS5,Islington - Duncan Terrace,Islington
+123,IS6,Islington - Arsenal,Islington
+124,KC1,Kensington and Chelsea - North Ken,Kensington and Chelsea
+125,KC2,Kensington and Chelsea - Cromwell Road,Kensington and Chelsea
+126,KC3,Kensington and Chelsea - Knightsbridge,Kensington and Chelsea
+127,KC4,Kensington and Chelsea - Kings Road,Kensington and Chelsea
+128,KC5,Kensington and Chelsea - Earls Court Rd,Kensington and Chelsea
+129,KC7,Kensington and Chelsea - North Ken FDMS,Kensington and Chelsea
+130,KF1,Kensington and Chelsea - North Ken FIDAS,Kensington and Chelsea
+131,KG1,Kensington and Chelsea - Green Screen RS,Kensington and Chelsea
+132,KG2,Kensington and Chelsea - Green Screen BG,Kensington and Chelsea
+133,KT1,Kingston - Chessington,Kingston upon Thames
+134,KT2,Kingston - Town Centre,Kingston upon Thames
+135,KT3,Kingston Upon Thames - Sopwith Way,Kingston upon Thames
+136,KT4,Kingston Upon Thames - Tolworth Broadway,Kingston upon Thames
+137,KT5,Kingston Upon Thames - Cromwell Road,Kingston upon Thames
+138,KT6,Kingston Upon Thames - Kingston Vale,Kingston upon Thames
+139,KX4,Camden - Coopers Lane,Camden
+140,LB1,Lambeth - Christchurch Road,Lambeth
+141,LB2,Lambeth - Vauxhall Cross,Lambeth
+142,LB3,Lambeth - Loughborough Junct,Lambeth
+143,LB4,Lambeth - Brixton Road,Lambeth
+144,LB5,Lambeth - Bondway Interchange,Lambeth
+145,LB6,Lambeth - Streatham Green,Lambeth
+146,LH0,Hillingdon - Harlington,Hillingdon
+147,LH2,Heathrow Airport,Hillingdon
+148,LW1,Lewisham - Catford,Lewisham
+149,LW2,Lewisham - New Cross,Lewisham
+150,LW3,Lewisham - Mercury Way,Lewisham
+151,LW4,Lewisham - Loampit Vale,Lewisham
+152,LW5,Lewisham - Deptford,Lewisham
+153,ME1,Merton - Morden Civic Centre,Merton
+154,ME2,Merton - Merton Road,Merton
+155,ME7,Merton - Willow Lane Industrial Estate,Merton
+156,ME9,Merton - Morden Civic Centre 2,Merton
+157,MY1,Westminster - Marylebone Road,Westminster
+158,MY7,Westminster - Marylebone Road FDMS,Westminster
+159,NB1,Westminster - Strand (Northbank BID),Westminster
+160,NM1,Newham - Tant Avenue,Newham
+161,NM2,Newham - Cam Road,Newham
+162,NM3,Newham - Wren Close,Newham
+163,RB1,Redbridge - Perth Terrace,Redbridge
+164,RB2,Redbridge - Ilford Broadway,Redbridge
+165,RB3,Redbridge - Fullwell Cross,Redbridge
+166,RB4,Redbridge - Gardner Close,Redbridge
+167,RB5,Redbridge - South Woodford,Redbridge
+168,RB7,Redbridge - Ley Street,Redbridge
+169,RHG,Richmond Upon Thames - Chertsey Road,Richmond upon Thames
+170,RI1,Richmond Upon Thames - Castelnau,Richmond upon Thames
+171,RI2,Richmond Upon Thames - Barnes Wetlands,Richmond upon Thames
+172,SK1,Southwark - Larcom Street,Southwark
+173,SK2,Southwark - Old Kent Road,Southwark
+174,SK5,Southwark - A2 Old Kent Road,Southwark
+175,SK6,Southwark - Elephant and Castle,Southwark
+176,SK7,Southwark - Heygate,Southwark
+177,SK8,Southwark - Tower Bridge Road,Southwark
+178,SK9,Southwark - A2 Old Kent Road FIDAS,Southwark
+179,SKA,Southwark - Lower Road,Southwark
+180,SKB,Southwark - Vicarage Grove,Southwark
+181,ST1,Sutton - Robin Hood School,Sutton
+182,ST2,Sutton - North Cheam,Sutton
+183,ST3,Sutton - Carshalton,Sutton
+184,ST4,Sutton - Wallington,Sutton
+185,ST5,Sutton - Beddington Lane north,Sutton
+186,ST6,Sutton - Worcester Park,Sutton
+187,ST7,Sutton - Therapia Lane,Sutton
+188,ST8,Sutton - Beddington Lane ,Sutton
+189,ST9,Sutton - Beddington Village,Sutton
+190,TD0,- National Physical Laboratory,Richmond upon Thames
+191,TD5,London Teddington Bushy Park ,Richmond upon Thames
+192,TH1,Tower Hamlets - Poplar,Tower Hamlets
+193,TH2,Tower Hamlets - Mile End Road,Tower Hamlets
+194,TH3,Tower Hamlets - Bethnal Green,Tower Hamlets
+195,TH4,Tower Hamlets - Blackwall,Tower Hamlets
+196,TH5,Tower Hamlets - Victoria Park,Tower Hamlets
+197,TH6,Tower Hamlets - Millwall Park,Tower Hamlets
+198,TL4,Greenwich - Tunnel Avenue,Greenwich
+199,TL5,Newham - Hoola Tower,Newham
+200,TL6,Newham - Britannia Gate,Newham
+201,VS1,Westminster - Victoria Street,Westminster
+202,WA1,Wandsworth - Garratt Lane,Wandsworth
+203,WA2,Wandsworth - Wandsworth Town Hall,Wandsworth
+204,WA3,Wandsworth - Roehampton,Wandsworth
+205,WA4,Wandsworth - High Street,Wandsworth
+206,WA6,Wandsworth - Tooting,Wandsworth
+207,WA7,Wandsworth - Putney High Street,Wandsworth
+208,WA8,Wandsworth - Putney High Street Facade,Wandsworth
+209,WA9,Wandsworth - Putney,Wandsworth
+210,WAA,Wandsworth - Battersea,Wandsworth
+211,WAB,Wandsworth - Tooting High Street,Wandsworth
+212,WAC,Wandsworth - Lavender Hill (Clapham Jct),Wandsworth
+213,WE0,Kensington and Chelsea - Pembroke Road,Kensington and Chelsea
+214,WL1,Waltham Forest - Dawlish Road,Waltham Forest
+215,WL2,Waltham Forest - Mobile,Waltham Forest
+216,WL3,Waltham Forest - Chingford,Waltham Forest
+217,WL4,Waltham Forest - Crooked Billet,Waltham Forest
+218,WL5,Waltham Forest - Leyton,Waltham Forest
+219,WM0,Westminster - Horseferry Road,Westminster
+220,WM4,Westminster - Charing Cross Library,Westminster
+221,WM5,Westminster - Covent Garden,Westminster
+222,WM6,Westminster - Oxford Street,Westminster
+223,WM8,Westminster - Victoria,Westminster
+224,WM9,Westminster - Victoria (Victoria BID),Westminster
+225,WMA,Westminster - Buckingham Palace Road,Westminster
+226,WMB,Westminster - Oxford Street East,Westminster
+227,WMC,Westminster - Cavendish Square,Westminster
+228,WMD,Westminster - Elizabeth Bridge,Westminster
