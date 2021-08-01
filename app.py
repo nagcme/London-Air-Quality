@@ -195,7 +195,7 @@ def plot_line_air_pollutant(borough_name):
     fig.update_xaxes(title_font_color='white', tickfont_color='white')
     fig.update_yaxes(title_font_color='white', tickfont_color='white')
     fig.update_layout(title_font_color='white', legend_font_color='white', paper_bgcolor='black', plot_bgcolor='black',title_font_size=25)
-    fig.update_annotations(font_color='white')
+    fig.update_annotations(font_color='red')
     ygraphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return ygraphJSON
     # fig.show()
