@@ -137,7 +137,7 @@ def plot_line_air_pollutant(borough_name):
     fig.update_layout(legend=dict(x=0, y=1.12), legend_orientation="h")
     fig.add_vline(x='2019-04-08')
     fig.add_annotation(x='2019-03-28',
-                       text="Start of ULEZ (11th April, 2019)",
+                       text="Start of ULEZ (8th April, 2019)",
                        showarrow=False, textangle=-90)
     fig.add_vrect(x0="2020-03-23", x1="2020-06-01",
                   fillcolor="Grey", opacity=0.5, line_width=0)
@@ -200,7 +200,7 @@ def plot_line_air_pollutant(borough_name):
     return ygraphJSON
     # fig.show()
 
-def gauge_plot(borough_name,val_date='2018-01-07'):
+def gauge_plot(borough_name,val_date='2021-06-30'):
 
     # Fetch data for input date and borough
     df_air = pd.read_csv('data_mean/data_borough/Daily_{}.csv'.format(borough_name))
@@ -270,21 +270,22 @@ val_date='2018-01-07'
 def borough():
  if request.method == 'POST' :
     borough = request.form.get('borough')
-    #val_date = request.form.get('date')
+    val_date = '2021-06-30'
     graph_borough = plot_line_air_pollutant(borough)
     min_air = fetch_min_air_pollutant(borough)
     gauge = gauge_plot(borough)
 
  else :
-    borough = request.form.get('borough')
-    #borough = 'Camden'
-    val_date = request.form.get('date')
+    borough = request.values.get('borough')
+    val_date = request.values.get('val_date')
+    print(borough)
     graph_borough = plot_line_air_pollutant(borough)
     min_air = fetch_min_air_pollutant(borough)
     gauge = gauge_plot(borough,val_date)
 
  return render_template('borough.html', borough=borough,graph=graph_borough,
-                           min_air_pollutant=min_air,gauge=gauge)
+                           min_air_pollutant=min_air,gauge=gauge,
+                           display_date=val_date)
 
 if __name__ == '__main__':
     app.run(debug=True)
