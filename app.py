@@ -8,20 +8,18 @@ from flask import Flask, render_template, request
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 from itertools import repeat
-from datetime import datetime
 
-# Create WSGI application
 app = Flask(__name__)
 
 
 def fetch_air_quality(borough):
-    all_files = glob.glob("C:/Users/NAGCM/data/Data_{0}*.csv".format(borough))
+    all_files = glob.glob("/data/Data_{0}*.csv".format(borough))
 
-
+    #     df_bexley = pd.DataFrame(columns = ['Year'])
     df_borough = pd.DataFrame(columns=['MeasurementDateGMT'])
     # print(all_files)
     for filename in all_files:
-        print(filename)
+        # print(filename)
         df_data = pd.read_csv(filename)
         df_data_borough = df_data[df_data.columns[1:]].rename(
             columns=lambda x: x.split(':')[1])
@@ -32,7 +30,7 @@ def fetch_air_quality(borough):
 
         df_borough.index = pd.to_datetime(df_borough.index)
     # print(df_borough)
-    # print(borough)
+    print(borough)
     df_borough = df_borough.groupby(pd.Grouper(freq='W')).mean()
     #     df_borough = df_borough.groupby('MeasurementDateGMT').sum()
     df_borough.index = pd.to_datetime(df_borough.index)
@@ -45,8 +43,9 @@ def fetch_air_quality(borough):
                                             ' PM2.5 Particulate (ug/m3)': 'PM25',
                                             ' Sulphur Dioxide (ug/m3)': 'SO2',
                                             ' Carbon Monoxide (mg/m3)': 'CO'})
-    # df_borough.to_csv('C:/Users/NAGCM/data/test_ken.csv')
+
     return df_borough
+
 
 def fetch_min_air_pollutant(borough_name):
     df_data = fetch_air_quality(borough_name)
@@ -64,7 +63,7 @@ def fetch_min_air_pollutant(borough_name):
         val = data[col].values[0]
         val = round(val, 2)
         data_list = [col, air_date[0], val]
-        # print(data_list)
+        print(data_list)
         df = pd.DataFrame([data_list], columns=col_list)
         df_min_air = df_min_air.append(df)
     #     df['Value'].round(decimals=2)
@@ -72,28 +71,27 @@ def fetch_min_air_pollutant(borough_name):
     return df_min_air
 
 def plot_line_air_pollutant(borough_name):
+
     # df_data = fetch_air_quality(borough_name)
-    df_data = pd.read_csv(
-        'C:/Users/NAGCM/data_mean/data_borough/{}.csv'.format(borough_name))
+    df_data = pd.read_csv('D:/data/data_mean/data_borough/{}.csv'.format(borough_name))
     df_data['date'] = df_data.MeasurementDateGMT
     df_data = df_data.drop(['MeasurementDateGMT'], axis=1)
-
-    # Calculate the max value in the dataframe to determine range
+    # df_data['date'] = df_data.index
     df_data_wo_date = df_data.drop(['date'], axis=1)
-    max_range = df_data_wo_date.max().max() + 100
+    max_range = df_data_wo_date.max().max()
 
     # Base plot
     fig = go.Figure(
         layout=go.Layout(
             updatemenus=[
                 dict(type="buttons", direction="right", x=1.0, y=1.25), ],
-            xaxis=dict(range=["2018-01-01", "2021-07-04"],
+            xaxis=dict(range=["2018-01-01", "2021-06-16"],
                        autorange=False, tickwidth=2,
                        title_text="Time"),
             yaxis=dict(range=[0, max_range],
                        autorange=False,
                        title_text="Value (ug/m3)"),
-            title="Air Pollutant",
+            title="Air Pollutant Timeline",
         ))
 
     # Add traces
@@ -110,12 +108,13 @@ def plot_line_air_pollutant(borough_name):
     for col in df_data.columns:
         if col == 'date':
             continue
+        i = i + 1
         fig.add_trace(
             go.Scatter(x=df_data.date[:init],
                        y=df_data[col][:init],
                        name=col,
                        visible=True,
-                       line=dict(color=color_dict.get(col))))
+                       line=dict(color=color_dict.get(col))))  
 
     # Animation
     frame_list = []
@@ -133,26 +132,26 @@ def plot_line_air_pollutant(borough_name):
 
     # Extra Formatting
     fig.update_xaxes(ticks="outside", tickwidth=2, tickcolor='white',
-                     ticklen=10)
-    fig.update_yaxes(ticks="outside", tickwidth=2, tickcolor='white', ticklen=1)
+                     ticklen=10,mirror=True,showline=True)
+    fig.update_yaxes(ticks="outside", tickwidth=2, tickcolor='white', ticklen=1,mirror=True,showline=True)
     fig.update_layout(yaxis_tickformat=',')
-    fig.update_layout(legend=dict(x=0, y=1.1), legend_orientation="h")
+    fig.update_layout(legend=dict(x=0, y=1.12), legend_orientation="h")
     fig.add_vline(x='2019-04-08')
     fig.add_annotation(x='2019-03-28',
                        text="Start of ULEZ (11th April, 2019)",
                        showarrow=False, textangle=-90)
     fig.add_vrect(x0="2020-03-23", x1="2020-06-01",
-                  fillcolor="Red", opacity=0.25, line_width=0)
+                  fillcolor="Grey", opacity=0.25, line_width=0)
     fig.add_annotation(x='2020-04-30',
                        text="Covid-19 First Lockdown",
                        showarrow=False, textangle=-90)
     fig.add_vrect(x0="2020-11-05", x1="2020-12-02",
-                  fillcolor="Red", opacity=0.25, line_width=0)
+                  fillcolor="Grey", opacity=0.25, line_width=0)
     fig.add_annotation(x='2020-11-18',
                        text="Covid-19 Second Lockdown",
                        showarrow=False, textangle=-90)
     fig.add_vrect(x0="2021-01-06", x1="2021-07-04",
-                  fillcolor="Red", opacity=0.25, line_width=0)
+                  fillcolor="Grey", opacity=0.25, line_width=0)
     fig.add_annotation(x='2021-03-25',
                        text="Covid-19 Third Lockdown",
                        showarrow=False, textangle=-90)
@@ -162,7 +161,7 @@ def plot_line_air_pollutant(borough_name):
     button_list = []
     button_list.append(dict(label="Play",
                             method="animate",
-                            args=[None, {"frame": {"duration": 1000}}]))
+                            args=[None, {"frame": {"duration": 1000},"transition": {"duration": 0}}]))
 
     visible_list = [False] * (len(df_data.columns) - 1)
     i = 0
@@ -176,7 +175,6 @@ def plot_line_air_pollutant(borough_name):
                                 args=[{"visible": visible_list[:]},
                                       {"showlegend": True}]))
 
-        #     print(button_list)
         visible_list[i] = False
         i = i + 1
 
@@ -190,19 +188,22 @@ def plot_line_air_pollutant(borough_name):
     fig.update_layout(
         updatemenus=[
             dict(
-                buttons=button_list)], width=1000, height=450)
+                buttons=button_list,active=0)])
 
     fig.layout.updatemenus[0].buttons[0].args[1]['frame']['duration'] = 20
+
+    fig.update_xaxes(title_font_color='white', tickfont_color='white')
+    fig.update_yaxes(title_font_color='white', tickfont_color='white')
+    fig.update_layout(title_font_color='white', legend_font_color='white', paper_bgcolor='black', plot_bgcolor='black',title_font_size=25)
+    fig.update_annotations(font_color='white')
     ygraphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return ygraphJSON
     # fig.show()
 
-def gauge_plot(borough_name='Camden',val_date='2018-01-07'):
+def gauge_plot(borough_name,val_date='2018-01-07'):
 
     # Fetch data for input date and borough
-    df_air = pd.read_csv(
-        'C:/Users/NAGCM/data_mean/data_borough/Daily_{}.csv'.format(
-            borough_name))
+    df_air = pd.read_csv('/data_mean/data_borough/Daily_{}.csv'.format(borough_name))
     df_air['date'] = df_air.MeasurementDateGMT
     df_air = df_air.drop(['MeasurementDateGMT'], axis=1)
     df_air_value = df_air.query('date == @val_date')
@@ -233,17 +234,22 @@ def gauge_plot(borough_name='Camden',val_date='2018-01-07'):
 
         i = i + 1
 
-    fig.update_layout(
-      grid={'rows': 1, 'columns': i, 'pattern': "independent"}
-    )
-    fig.update_traces(gauge_bordercolor='white',
-                      selector=dict(type='indicator'))
+    fig.update_layout(grid={'rows': 1, 'columns': i, 'pattern': "independent"})
+    fig.update_layout(height=200,margin=dict(
+        l=10,
+        r=10,
+        b=10,
+        t=10,
+        pad=4
+    ))
+    fig.update_layout(title_font_color='white', legend_font_color='white', paper_bgcolor='black', plot_bgcolor='black')
+    fig.update_traces(gauge_bordercolor='black',selector=dict(type='indicator'))
+    fig.update_traces(title_font_color='white',number_font_color='white')
     gaugeJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return gaugeJSON
 
-# Create decorator
+
 @app.route('/')
-@app.route('/home')
 def home():
     return render_template('home.html')
 
@@ -251,27 +257,34 @@ def home():
 def about():
     return render_template('about.html')
 
-@app.route('/london')
-def london():
-    return render_template('london.html')
+#@app.route('/london')
+#def london():
+#    return render_template('london.html')
 
-@app.route('/region')
+@app.route('/boroughwise')
 def region():
-    return render_template('region.html')
+    return render_template('boroughwise.html')
 
-@app.route('/borough', methods=['GET','POST'])
+val_date='2018-01-07'
+@app.route('/borough', methods=['GET', 'POST'])
 def borough():
+ if request.method == 'POST' :
+    borough = request.form.get('borough')
+    #val_date = request.form.get('date')
+    graph_borough = plot_line_air_pollutant(borough)
+    min_air = fetch_min_air_pollutant(borough)
+    gauge = gauge_plot(borough)
 
-    if request.method == 'POST':
-    # borough = request.form.get('borough')
-        borough = request.form['borough']
-        graph_borough = plot_line_air_pollutant(borough)
-        min_air = fetch_min_air_pollutant(borough)
-        gauge = gauge_plot()
+ else :
+    borough = request.form.get('borough')
+    #borough = 'Camden'
+    val_date = request.form.get('date')
+    graph_borough = plot_line_air_pollutant(borough)
+    min_air = fetch_min_air_pollutant(borough)
+    gauge = gauge_plot(borough,val_date)
 
-        return render_template('borough.html', borough=borough,graph=graph_borough,
-                               min_air_pollutant=min_air,gauge=gauge)
+ return render_template('borough.html', borough=borough,graph=graph_borough,
+                           min_air_pollutant=min_air,gauge=gauge)
 
 if __name__ == '__main__':
     app.run(debug=True)
-
