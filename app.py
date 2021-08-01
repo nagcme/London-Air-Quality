@@ -80,7 +80,6 @@ def plot_line_air_pollutant(borough_name):
     df_data_wo_date = df_data.drop(['date'], axis=1)
     max_range = df_data_wo_date.max().max()
 
-    # Base plot
     fig = go.Figure(
         layout=go.Layout(
             updatemenus=[
@@ -141,17 +140,17 @@ def plot_line_air_pollutant(borough_name):
                        text="Start of ULEZ (11th April, 2019)",
                        showarrow=False, textangle=-90)
     fig.add_vrect(x0="2020-03-23", x1="2020-06-01",
-                  fillcolor="Grey", opacity=0.25, line_width=0)
+                  fillcolor="Grey", opacity=0.5, line_width=0)
     fig.add_annotation(x='2020-04-30',
                        text="Covid-19 First Lockdown",
                        showarrow=False, textangle=-90)
     fig.add_vrect(x0="2020-11-05", x1="2020-12-02",
-                  fillcolor="Grey", opacity=0.25, line_width=0)
+                  fillcolor="Grey", opacity=0.5, line_width=0)
     fig.add_annotation(x='2020-11-18',
                        text="Covid-19 Second Lockdown",
                        showarrow=False, textangle=-90)
     fig.add_vrect(x0="2021-01-06", x1="2021-07-04",
-                  fillcolor="Grey", opacity=0.25, line_width=0)
+                  fillcolor="Grey", opacity=0.5, line_width=0)
     fig.add_annotation(x='2021-03-25',
                        text="Covid-19 Third Lockdown",
                        showarrow=False, textangle=-90)
@@ -192,10 +191,11 @@ def plot_line_air_pollutant(borough_name):
 
     fig.layout.updatemenus[0].buttons[0].args[1]['frame']['duration'] = 20
 
-    fig.update_xaxes(title_font_color='white', tickfont_color='white', showgrid=False)
-    fig.update_yaxes(title_font_color='white', tickfont_color='white', showgrid=False)
+    fig.update_xaxes(title_font_color='white', tickfont_color='white', gridcolor='grey')
+    fig.update_yaxes(title_font_color='white', tickfont_color='white', gridcolor='grey')
     fig.update_layout(title_font_color='white', legend_font_color='white', paper_bgcolor='black', plot_bgcolor='black',title_font_size=25)
-    fig.update_annotations(font_color='red')
+    fig.update_annotations(font_color='white',font_size=14)
+    
     ygraphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return ygraphJSON
     # fig.show()
