@@ -48,9 +48,11 @@ def fetch_air_quality(borough):
 
 
 def fetch_min_air_pollutant(borough_name):
-    df_data = pd.read_csv('data_mean/data_borough/{}.csv'.format(borough_name))
-    df_data['date'] = df_data.MeasurementDateGMT
-    df_data = df_data.drop(['MeasurementDateGMT'], axis=1)
+    df_data = fetch_air_quality(borough_name)
+    df_data['date'] = df_data.index
+
+    col_list = ['AirPollutant', 'Date', 'Value']
+    df_min_air = pd.DataFrame(columns=col_list)
 
     col_list = ['AirPollutant', 'Date', 'Value']
     df_min_air = pd.DataFrame(columns=col_list)
