@@ -48,8 +48,9 @@ def fetch_air_quality(borough):
 
 
 def fetch_min_air_pollutant(borough_name):
-    df_data = fetch_air_quality(borough_name)
-    df_data['date'] = df_data.index
+    df_data = pd.read_csv('data_mean/data_borough/{}.csv'.format(borough_name))
+    df_data['date'] = df_data.MeasurementDateGMT
+    df_data = df_data.drop(['MeasurementDateGMT'], axis=1)
 
     col_list = ['AirPollutant', 'Date', 'Value']
     df_min_air = pd.DataFrame(columns=col_list)
@@ -73,7 +74,7 @@ def fetch_min_air_pollutant(borough_name):
 def plot_line_air_pollutant(borough_name):
 
     # df_data = fetch_air_quality(borough_name)
-    df_data = pd.read_csv('/data_mean/data_borough/{}.csv'.format(borough_name))
+    df_data = pd.read_csv('data_mean/data_borough/{}.csv'.format(borough_name))
     df_data['date'] = df_data.MeasurementDateGMT
     df_data = df_data.drop(['MeasurementDateGMT'], axis=1)
     # df_data['date'] = df_data.index
@@ -203,7 +204,7 @@ def plot_line_air_pollutant(borough_name):
 def gauge_plot(borough_name,val_date='2018-01-07'):
 
     # Fetch data for input date and borough
-    df_air = pd.read_csv('/data_mean/data_borough/Daily_{}.csv'.format(borough_name))
+    df_air = pd.read_csv('data_mean/data_borough/Daily_{}.csv'.format(borough_name))
     df_air['date'] = df_air.MeasurementDateGMT
     df_air = df_air.drop(['MeasurementDateGMT'], axis=1)
     df_air_value = df_air.query('date == @val_date')
