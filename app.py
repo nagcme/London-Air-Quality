@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 
 def fetch_air_quality(borough):
-    all_files = glob.glob("/data/Data_{0}*.csv".format(borough))
+    all_files = glob.glob("data/Data_{0}*.csv".format(borough))
 
     #     df_bexley = pd.DataFrame(columns = ['Year'])
     df_borough = pd.DataFrame(columns=['MeasurementDateGMT'])
@@ -50,9 +50,6 @@ def fetch_air_quality(borough):
 def fetch_min_air_pollutant(borough_name):
     df_data = fetch_air_quality(borough_name)
     df_data['date'] = df_data.index
-
-    col_list = ['AirPollutant', 'Date', 'Value']
-    df_min_air = pd.DataFrame(columns=col_list)
 
     col_list = ['AirPollutant', 'Date', 'Value']
     df_min_air = pd.DataFrame(columns=col_list)
@@ -280,6 +277,7 @@ def borough():
 
  else :
     borough = request.form.get('borough')
+    #borough = 'Camden'
     val_date = request.form.get('date')
     graph_borough = plot_line_air_pollutant(borough)
     min_air = fetch_min_air_pollutant(borough)
