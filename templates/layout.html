@@ -1,0 +1,21 @@
+    <!DOCTYPE html>
+    <html>
+    <body style="background-color:black;">
+<!--       <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">-->
+    <h1 style="color: white" align="middle">LONDON AIR QUALITY</h1>
+
+
+
+   <div style="height:45px;background-color:lightgreen">
+
+     <div onclick="location.href='/'" style="font-size: 25px;font-weight:bold;text-align: center;border-style: groove;background-color:lightgreen;height:30px;width:10%;float:left;margin:2px">Home</div>
+<!--     <div onclick="location.href='london'" style="font-size: 25px;font-weight:bold;text-align: center;border-style: groove;background-color:lightgreen;height:30px;width:10%;float:left;margin:2px">London</div>-->
+     <div onclick="location.href='boroughwise'"  style="font-size: 25px;font-weight:bold;text-align: center;border-style: groove;background-color:lightgreen;height:30px;width:10%;float:left;margin:2px">Boroughs</div>
+     <div onclick="location.href='about'"  style="font-size: 25px;font-weight:bold;text-align: center;border-style: groove;background-color:lightgreen;height:30px;width:10%;float:left;margin:2px">About</div>
+
+   </div>
+
+    </body>
+    {% block content %}
+    {% endblock %}
+    </html>
