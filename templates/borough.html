@@ -1,11 +1,5 @@
 {% extends "layout.html" %}
 {% block content %}
-<script type="text/javascript">
-   function testContent(date) {
-        var date = date
-        return false;
-    }
-</script>
 <head>
     <meta charset="UTF-8">
     <title>{{borough}} Air Quality</title>
@@ -36,11 +30,11 @@
 
    	    </script></div></div>
   <div style="margin:3px;height:10vh;color:white">
-    <form onsubmit="testContent()">
+    <form>
         <h3>Pollutants on the Day</h3>
-        <label for="date">Choose Date:</label>
+        <label>Choose Date:</label>
         <input type="hidden" name="borough" value={{borough}} />
-        <input type="date" onload='2020-30-06' value=date name="val_date">
+        <input type="date" name="val_date" value={{display_date}} />
         <input type="submit">
 
     </form>
