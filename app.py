@@ -73,7 +73,7 @@ def fetch_min_air_pollutant(borough_name):
 def plot_line_air_pollutant(borough_name):
 
     # df_data = fetch_air_quality(borough_name)
-    df_data = pd.read_csv('D:/data/data_mean/data_borough/{}.csv'.format(borough_name))
+    df_data = pd.read_csv('/data_mean/data_borough/{}.csv'.format(borough_name))
     df_data['date'] = df_data.MeasurementDateGMT
     df_data = df_data.drop(['MeasurementDateGMT'], axis=1)
     # df_data['date'] = df_data.index
@@ -277,7 +277,6 @@ def borough():
 
  else :
     borough = request.form.get('borough')
-    #borough = 'Camden'
     val_date = request.form.get('date')
     graph_borough = plot_line_air_pollutant(borough)
     min_air = fetch_min_air_pollutant(borough)
