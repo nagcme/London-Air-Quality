@@ -6,51 +6,54 @@
 </head>
 <body>
 
-<div style="margin:3px;float:left;height:80vh;width:20%">
-    <div style="height:15vh;margin:3px;background-color:black;color:white;font-size: 50px;font-weight: bold;text-align:center">{{borough}}</div>
-  <div style="height:40vh;margin:3px;background-color:black;color:black">
-    <img src = "/static/{{borough}}.gif" width="95%" height="250vh" align="center">
-  </div>
-    <div style="height:33vh;margin:3px;background-color:black;color:white;white-space:pre-wrap;">{{min_air_pollutant}}</div>
+<div style="margin:3px;float:left;height:100%;width:20%">
+    <div style="height:15%;margin:3px;background-color:black;color:white;font-size: 50px;font-weight: bold;text-align:center">{{borough}}</div>
+    <div style="height:40%;margin:3px;background-color:black;color:black">
+      <img src = "/static/{{borough}}.gif" width="95%" height="100%" align="center">
+    </div>
+    <div style="height:33%;margin:3px;background-color:black;color:white;white-space:pre-wrap;">{{min_air_pollutant}}</div>
 
 </div>
 
-<div style="margin:3px;float:left;height:80vh;width:78.5%">
-  <div style="height:55vh;margin:3px;background-color:black;color:black">
+<div style="margin:3px;float:left;height:100%;width:78.5%">
+  <div style="height:50%;margin:3px;background-color:black;color:black">
       <div id="graph" class="chart" style="margin-top:5px">
-       <script src="/static/d3.min.js"></script>
-       <script src="/static/jquery-2.1.4.min.js"></script>
-       <script src="/static/plotly-latest.min.js"></script>
+        <script src="/static/d3.min.js"></script>
+        <script src="/static/jquery-2.1.4.min.js"></script>
+        <script src="/static/plotly-latest.min.js"></script>
 
-   	    <script type="text/javascript">
+        <script type="text/javascript">
 
-       	 var graphs = {{graph | safe}};
+         var graphs = {{graph | safe}};
 
-       	 Plotly.plot('graph',graphs,{});
+         Plotly.plot('graph',graphs,{});
 
-   	    </script></div></div>
-  <div style="margin:3px;height:10vh;color:white">
+            </script>
+      </div>
+  </div>
+  <div style="margin:3px;height:10%;color:white">
     <form>
         <h3>Pollutants on the Day</h3>
         <label>Choose Date:</label>
         <input type="hidden" name="borough" value={{borough}} />
-        <input type="date" name="val_date" value={{display_date}} />
+        <input type="date" name="val_date" value={{display_date}} min='2018-01-01' max='2021-06-30' />
         <input type="submit">
 
     </form>
+  </div>
 
-    <div id="gauge" class="chart" style="margin-top:5px">
+    <div id="gauge" class="chart" style="height:35%margin-top:5px">
         <script src="/static/d3.min.js"></script>
-   	<script src="/static/jquery-2.1.4.min.js"></script>
+        <script src="/static/jquery-2.1.4.min.js"></script>
         <script src="/static/plotly-latest.min.js"></script>>
 
-   	    <script type="text/javascript">
+            <script type="text/javascript">
 
-       	 var graphs = {{gauge | safe}};
+         var graphs = {{gauge | safe}};
 
-       	 Plotly.plot('gauge',graphs,{});
+         Plotly.plot('gauge',graphs,{});
 
-   	    </script></div>
+            </script></div>
      </div>
    </div>
 <!--<div style="height:300px;background-color:#212F3C;type:block"></div>-->
