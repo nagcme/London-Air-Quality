@@ -131,7 +131,7 @@ def plot_line_air_pollutant(borough_name):
     fig.update_layout(legend=dict(x=0, y=1.12), legend_orientation="h")
     fig.add_vline(x='2019-04-08')
     fig.add_annotation(x='2019-03-28',
-                       text="Start of ULEZ (8th April, 2019)",
+                       text="Start of ULEZ/LEZ (8th April, 2019)",
                        showarrow=False, textangle=-90)
     fig.add_vrect(x0="2020-03-23", x1="2020-06-01",
                   fillcolor="Grey", opacity=0.5, line_width=0)
