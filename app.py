@@ -200,6 +200,7 @@ def gauge_plot(borough_name,val_date='2021-06-30'):
     # Fetch data for input date and borough
     df_air = pd.read_csv('data_mean/data_borough/Daily_{}.csv'.format(borough_name))
     df_air['date'] = df_air.MeasurementDateGMT
+    df_air['date'] = pd.to_datetime(df_air['date'])
     df_air = df_air.drop(['MeasurementDateGMT'], axis=1)
     df_air_value = df_air.query('date == @val_date')
     df_air_value = df_air_value.rename(columns={' Nitric Oxide (ug/m3)': 'NO',' Nitrogen Dioxide (ug/m3)': 'NO2',
