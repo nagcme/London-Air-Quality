@@ -251,10 +251,6 @@ def home():
 def about():
     return render_template('about.html')
 
-#@app.route('/london')
-#def london():
-#    return render_template('london.html')
-
 @app.route('/boroughwise')
 def region():
     return render_template('boroughwise.html')
@@ -263,7 +259,6 @@ val_date='2018-01-07'
 @app.route('/borough', methods=['GET', 'POST'])
 def borough():
  if request.method == 'POST' :
-    print(borough)
     borough = request.form.get('borough')
     val_date = '2021-06-30'
     graph_borough = plot_line_air_pollutant(borough)
@@ -271,8 +266,6 @@ def borough():
     gauge = gauge_plot(borough)
 
  else :
-    
-    print(borough)
     borough = request.values.get('borough')
     val_date = request.values.get('val_date')
     graph_borough = plot_line_air_pollutant(borough)
