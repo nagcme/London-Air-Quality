@@ -71,6 +71,9 @@ def plot_line_air_pollutant(borough_name):
     df_data = pd.read_csv('data_mean/data_borough/{}.csv'.format(borough_name))
     df_data['date'] = df_data.MeasurementDateGMT
     df_data = df_data.drop(['MeasurementDateGMT'], axis=1)
+    if borough_name == 'Wandsworth':
+        df_data['date'] = pd.to_datetime(df_data['date'], format='%d/%m/%Y')
+        df_data['date'] = df_data['date'].dt.strftime('%Y-%m-%d')
     # df_data['date'] = df_data.index
     df_data_wo_date = df_data.drop(['date'], axis=1)
     max_range = df_data_wo_date.max().max()
@@ -200,6 +203,9 @@ def gauge_plot(borough_name,val_date='2021-06-30'):
     # Fetch data for input date and borough
     df_air = pd.read_csv('data_mean/data_borough/Daily_{}.csv'.format(borough_name))
     df_air['date'] = df_air.MeasurementDateGMT
+    if borough_name == 'Wandsworth':
+        df_air['date'] = pd.to_datetime(df_air['date'],format='%d/%m/%Y')
+        df_air['date'] = df_air['date'].dt.strftime('%Y-%m-%d')
     df_air['date'] = pd.to_datetime(df_air['date'])
     df_air = df_air.drop(['MeasurementDateGMT'], axis=1)
     df_air_value = df_air.query('date == @val_date')
