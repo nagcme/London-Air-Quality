@@ -62,8 +62,8 @@ def fetch_min_air_pollutant(borough_name):
         df = pd.DataFrame([data_list], columns=col_list)
         df_min_air = df_min_air.append(df)
     #     df['Value'].round(decimals=2)
-    df_min_air.set_index('AirPollutant', inplace=True)
-    return df_min_air
+    #df_min_air.set_index('AirPollutant', inplace=True)
+    return df_min_air.to_html(index=False)
 
 def plot_line_air_pollutant(borough_name):
 
