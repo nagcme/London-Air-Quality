@@ -11,7 +11,10 @@
     <div style="height:40%;margin:3px;background-color:black;color:black">
       <img src = "/static/{{borough}}.gif" width="95%" height="100%" align="center">
     </div>
-    <div style="height:33%;margin:3px;background-color:black;color:white;white-space:pre-wrap;">{{min_air_pollutant}}</div>
+    <div style="height:33%;margin:3px;background-color:black;color:white;white-space:pre-wrap;">
+      <h3>Date of Minimum Value for each Pollutant:</h3>
+      {{ min_air_pollutant |safe }}
+    </div>
 
 </div>
 
