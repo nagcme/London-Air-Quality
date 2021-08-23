@@ -12,40 +12,44 @@ from itertools import repeat
 app = Flask(__name__)
 
 
-def fetch_air_quality(borough):
-    all_files = glob.glob("data/Data_{0}*.csv".format(borough))
+# def fetch_air_quality(borough):
+#     all_files = glob.glob("data/Data_{0}*.csv".format(borough))
 
-    #     df_bexley = pd.DataFrame(columns = ['Year'])
-    df_borough = pd.DataFrame(columns=['MeasurementDateGMT'])
-    for filename in all_files:
-        df_data = pd.read_csv(filename)
-        df_data_borough = df_data[df_data.columns[1:]].rename(
-            columns=lambda x: x.split(':')[1])
-        df_data_borough['MeasurementDateGMT'] = df_data['MeasurementDateGMT']
-        df_borough = df_borough.reset_index()
-        df_borough = pd.concat([df_borough, df_data_borough])
-        df_borough = df_borough.groupby('MeasurementDateGMT').mean()
+#     #     df_bexley = pd.DataFrame(columns = ['Year'])
+#     df_borough = pd.DataFrame(columns=['MeasurementDateGMT'])
+#     for filename in all_files:
+#         df_data = pd.read_csv(filename)
+#         df_data_borough = df_data[df_data.columns[1:]].rename(
+#             columns=lambda x: x.split(':')[1])
+#         df_data_borough['MeasurementDateGMT'] = df_data['MeasurementDateGMT']
+#         df_borough = df_borough.reset_index()
+#         df_borough = pd.concat([df_borough, df_data_borough])
+#         df_borough = df_borough.groupby('MeasurementDateGMT').mean()
 
-        df_borough.index = pd.to_datetime(df_borough.index)
-    df_borough = df_borough.groupby(pd.Grouper(freq='W')).mean()
-    #     df_borough = df_borough.groupby('MeasurementDateGMT').sum()
-    df_borough.index = pd.to_datetime(df_borough.index)
-    df_borough = df_borough.rename(columns={' Nitric Oxide (ug/m3)': 'NO',
-                                            ' Nitrogen Dioxide (ug/m3)': 'NO2',
-                                            ' Oxides of Nitrogen (ug/m3)':
-                                                'NOX',
-                                            ' Ozone (ug/m3)': 'O3',
-                                            ' PM10 Particulate (ug/m3)': 'PM10',
-                                            ' PM2.5 Particulate (ug/m3)': 'PM25',
-                                            ' Sulphur Dioxide (ug/m3)': 'SO2',
-                                            ' Carbon Monoxide (mg/m3)': 'CO'})
+#         df_borough.index = pd.to_datetime(df_borough.index)
+#     df_borough = df_borough.groupby(pd.Grouper(freq='W')).mean()
+#     #     df_borough = df_borough.groupby('MeasurementDateGMT').sum()
+#     df_borough.index = pd.to_datetime(df_borough.index)
+#     df_borough = df_borough.rename(columns={' Nitric Oxide (ug/m3)': 'NO',
+#                                             ' Nitrogen Dioxide (ug/m3)': 'NO2',
+#                                             ' Oxides of Nitrogen (ug/m3)':
+#                                                 'NOX',
+#                                             ' Ozone (ug/m3)': 'O3',
+#                                             ' PM10 Particulate (ug/m3)': 'PM10',
+#                                             ' PM2.5 Particulate (ug/m3)': 'PM25',
+#                                             ' Sulphur Dioxide (ug/m3)': 'SO2',
+#                                             ' Carbon Monoxide (mg/m3)': 'CO'})
 
-    return df_borough
+#     return df_borough
 
 
 def fetch_min_air_pollutant(borough_name):
-    df_data = fetch_air_quality(borough_name)
-    df_data['date'] = df_data.index
+#     df_data = fetch_air_quality(borough_name)
+    df_data = pd.read_csv('data_mean/data_borough/Daily_{}.csv'.format(
+              borough_name))
+    df_data['date'] = df_data.MeasurementDateGMT
+    df_data.index = pd.to_datetime(df_data.date)
+    df_data = df_data.drop(['MeasurementDateGMT'], axis=1)
 
     col_list = ['AirPollutant', 'Date', 'Value']
     df_min_air = pd.DataFrame(columns=col_list)
