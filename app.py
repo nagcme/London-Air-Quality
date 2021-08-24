@@ -9,6 +9,7 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 from itertools import repeat
 
+# creates the WSGI application
 app = Flask(__name__)
 
 
@@ -254,19 +255,22 @@ def gauge_plot(borough_name,val_date='2021-06-30'):
     return gaugeJSON
 
 
+# Decorator for home page
 @app.route('/')
 def home():
     return render_template('home.html')
 
+# Decorator for about page
 @app.route('/about')
 def about():
     return render_template('about.html')
 
+# Decorator for boroughwise page
 @app.route('/boroughwise')
 def region():
     return render_template('boroughwise.html')
 
-val_date='2018-01-07'
+# Decorator for borough page
 @app.route('/borough', methods=['GET', 'POST'])
 def borough():
  if request.method == 'POST' :
@@ -275,7 +279,6 @@ def borough():
     graph_borough = plot_line_air_pollutant(borough)
     min_air = fetch_min_air_pollutant(borough)
     gauge = gauge_plot(borough)
-
  else :
     borough = request.values.get('borough')
     val_date = request.values.get('val_date')
@@ -289,4 +292,5 @@ def borough():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
+    #app.run(debug=True)
