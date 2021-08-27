@@ -1,3 +1,15 @@
+'''
+Module : Final Year Project
+Topic : Impact of Covid-19 on London Air Quality
+Description : Create a web based application to showcase the impact of Covid-19 restrictions on London air quality. 
+              Period of Analysis - 1st Jan, 2018 to 30th Jun, 2021
+References: 
+https://community.plotly.com/t/changing-the-background-colour-of-a-graph/29246
+https://plotly.com/python/reference/indicator/
+https://towardsdatascience.com/lets-make-a-map-using-geopandas-pandas-and-matplotlib-to-make-a-chloropleth-map-dddc31c1983d
+https://plotly.com/python/reference/layout
+'''
+
 import pandas as pd
 import glob
 import plotly.express as px
@@ -13,39 +25,7 @@ from itertools import repeat
 app = Flask(__name__)
 
 
-# def fetch_air_quality(borough):
-#     all_files = glob.glob("data/Data_{0}*.csv".format(borough))
-
-#     #     df_bexley = pd.DataFrame(columns = ['Year'])
-#     df_borough = pd.DataFrame(columns=['MeasurementDateGMT'])
-#     for filename in all_files:
-#         df_data = pd.read_csv(filename)
-#         df_data_borough = df_data[df_data.columns[1:]].rename(
-#             columns=lambda x: x.split(':')[1])
-#         df_data_borough['MeasurementDateGMT'] = df_data['MeasurementDateGMT']
-#         df_borough = df_borough.reset_index()
-#         df_borough = pd.concat([df_borough, df_data_borough])
-#         df_borough = df_borough.groupby('MeasurementDateGMT').mean()
-
-#         df_borough.index = pd.to_datetime(df_borough.index)
-#     df_borough = df_borough.groupby(pd.Grouper(freq='W')).mean()
-#     #     df_borough = df_borough.groupby('MeasurementDateGMT').sum()
-#     df_borough.index = pd.to_datetime(df_borough.index)
-#     df_borough = df_borough.rename(columns={' Nitric Oxide (ug/m3)': 'NO',
-#                                             ' Nitrogen Dioxide (ug/m3)': 'NO2',
-#                                             ' Oxides of Nitrogen (ug/m3)':
-#                                                 'NOX',
-#                                             ' Ozone (ug/m3)': 'O3',
-#                                             ' PM10 Particulate (ug/m3)': 'PM10',
-#                                             ' PM2.5 Particulate (ug/m3)': 'PM25',
-#                                             ' Sulphur Dioxide (ug/m3)': 'SO2',
-#                                             ' Carbon Monoxide (mg/m3)': 'CO'})
-
-#     return df_borough
-
-
 def fetch_min_air_pollutant(borough_name):
-#     df_data = fetch_air_quality(borough_name)
     df_data = pd.read_csv('data_mean/data_borough/Daily_{}.csv'.format(
               borough_name))
     df_data['date'] = df_data.MeasurementDateGMT
@@ -66,13 +46,9 @@ def fetch_min_air_pollutant(borough_name):
         data_list = [col, air_date[0], val]
         df = pd.DataFrame([data_list], columns=col_list)
         df_min_air = df_min_air.append(df)
-    #     df['Value'].round(decimals=2)
-    #df_min_air.set_index('AirPollutant', inplace=True)
     return df_min_air.to_html(index=False)
 
 def plot_line_air_pollutant(borough_name):
-
-    # df_data = fetch_air_quality(borough_name)
     df_data = pd.read_csv('data_mean/data_borough/{}.csv'.format(borough_name))
     df_data['date'] = df_data.MeasurementDateGMT
     df_data = df_data.drop(['MeasurementDateGMT'], axis=1)
@@ -293,4 +269,3 @@ def borough():
 
 if __name__ == '__main__':
     app.run()
-    #app.run(debug=True)
