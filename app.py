@@ -19,7 +19,7 @@ import json
 from flask import Flask, render_template, request
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
-from itertools import repeat
+# from itertools import repeat
 
 # creates the WSGI application
 app = Flask(__name__)
