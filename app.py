@@ -8,6 +8,7 @@ https://community.plotly.com/t/changing-the-background-colour-of-a-graph/29246
 https://plotly.com/python/reference/indicator/
 https://towardsdatascience.com/lets-make-a-map-using-geopandas-pandas-and-matplotlib-to-make-a-chloropleth-map-dddc31c1983d
 https://plotly.com/python/reference/layout
+https://towardsdatascience.com/web-visualization-with-plotly-and-flask-3660abf9c946
 '''
 
 import pandas as pd
