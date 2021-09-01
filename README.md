@@ -7,9 +7,9 @@ data_mean: This folder contains all the static data of pollutant levels in csv f
 static: This folder contains all the static contents used in the application. Like images, GIFs and javascript codes
 templates: This folder is the container of all the HTML files.
 			
-			layout.html - This page defines the common HTML and CSS layout which is extended to all pages. Like the main navigation bar, background and the title. User can also reach this page by clicking on the "Home" button on the Navigation Bar at the top of all the pages.
+			layout.html - This page defines the common HTML and CSS layout which is extended to all pages. Like the main navigation bar, background and the title. 
 			
-			home.html - This is the first page which loads when the user opens the app, It has a GIF representing the changeof AQI for London through the period of analysis and includes a write-up on the analysis done on the effect of COvid-19 on the level of pollution in London.
+			home.html - This is the first page which loads when the user opens the app, It has a GIF representing the changeof AQI for London through the period of analysis and includes a write-up on the analysis done on the effect of COvid-19 on the level of pollution in London. User can also reach this page by clicking on the "Home" button on the Navigation Bar at the top of all the pages.
 			
 			boroughwise.html - This pages has buttons for all the boroughs of London for which the analysis is aviable. By clicking on any of the borough buttons, user can choose to view a detailed visual represention of the pollutions in a particular borough. This page can be reached by clicking on the "Boroughs" button on the top navigation bar of all the pages.
 			
